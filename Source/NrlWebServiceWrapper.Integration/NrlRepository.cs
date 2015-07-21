@@ -15,6 +15,7 @@ namespace NrlWebServiceWrapper.Integration
     {
         private readonly Uri _endpoint;
         private readonly int _clientId;
+        private int _currentNrlSeason;
 
         public NrlRepository(Uri endpoint, int clientId)
         {
@@ -30,7 +31,8 @@ namespace NrlWebServiceWrapper.Integration
                 XmlNode item = client.GetCompetitionList(_clientId);
                 XmlSerializer serializer = new XmlSerializer(typeof(SeriesList));
                 SeriesList seriesList = (SeriesList)serializer.Deserialize(new StringReader(item.InnerXml));
-                SeriesListSeries listSeries = seriesList.Series.First(value => value.seriesId == 151);
+                _currentNrlSeason = 151;
+                SeriesListSeries listSeries = seriesList.Series.First(value => value.seriesId == _currentNrlSeason);
                 int currentRoundId = listSeries.currentRoundId;
                 return ProcessCurrentRoundId(currentRoundId);
             }
@@ -59,7 +61,7 @@ namespace NrlWebServiceWrapper.Integration
                 XmlNode item = client.GetFixture(_clientId);
                 XmlSerializer serializer = new XmlSerializer(typeof (Fixture));
                 Fixture fixture = (Fixture) serializer.Deserialize(new StringReader(item.OuterXml));
-                IEnumerable<FixtureEvent> currentRoundFixtures = fixture.Event.Where(i => i.roundId == roundNumber);
+                IEnumerable<FixtureEvent> currentRoundFixtures = fixture.Event.Where(i => i.roundId == roundNumber && i.seriesId == _currentNrlSeason);
                 return
                     currentRoundFixtures.Select(
                         currentRoundFixture =>
