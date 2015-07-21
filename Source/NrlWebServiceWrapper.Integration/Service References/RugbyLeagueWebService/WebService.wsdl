@@ -1,0 +1,2675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLeagues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="leagueId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeaguesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLeaguesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVenues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="leagueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matchId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="venueId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVenuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVenuesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="leagueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matchId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="venueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="teamId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountriesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="leagueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matchId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="teamId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="positionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="playerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayersResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerPositions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="positionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerPositionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerPositionsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompetitionListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamLineUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="teamId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamLineUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamLineUpResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionRoundList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionRoundListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompetitionRoundListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionFixture">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="roundId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="teamId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="venueId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompetitionFixtureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompetitionFixtureResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeriesTeam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeriesTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeriesTeamResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormGuide">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="roundId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormGuideResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormGuideResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullSeriesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="leagueId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullSeriesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFullSeriesListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeadChart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeadChartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLeadChartResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamStatsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerStanding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerStandingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerStandingResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMatchStatsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamStanding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamStandingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamStandingResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainScorecard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainScorecardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMainScorecardResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFixture">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFixtureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFixtureResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentaryResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchPredictions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchPredictionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMatchPredictionsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchletContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchletContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMatchletContentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamMatchStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matchId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="teamId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamMatchStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamMatchStatsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamSeriesStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="teamId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamSeriesStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamSeriesStatsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastAccessDateTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemEventsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerStats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="localeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="seriesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="matchId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="teamId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="playerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerStatsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLeaguesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLeagues" />
+  </wsdl:message>
+  <wsdl:message name="GetLeaguesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLeaguesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVenues" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVenuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeams" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayers" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerPositions" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompetitionList" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompetitionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamLineUp" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamLineUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompetitionRoundList" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompetitionRoundListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompetitionFixture" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompetitionFixtureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeriesTeam" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeriesTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormGuide" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormGuideResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFullSeriesList" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFullSeriesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLeadChart" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLeadChartResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamStats" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerStanding" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerStandingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMatchStats" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMatchStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamStanding" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamStandingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMainScorecard" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMainScorecardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFixture" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFixtureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommentary" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMatchPredictions" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMatchPredictionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMatchletContent" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMatchletContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamMatchStats" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamMatchStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamSeriesStats" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamSeriesStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerStats" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLeaguesHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLeaguesHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="groupId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="positionId" type="s:string" />
+    <wsdl:part name="playerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="positionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="roundId" type="s:string" />
+    <wsdl:part name="groupId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="roundId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentaryHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentaryHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="lastAccessDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="playerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLeaguesHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLeaguesHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVenuesHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="groupId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="countryId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="positionId" type="s:string" />
+    <wsdl:part name="playerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayersHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="positionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerPositionsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamLineUpHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionRoundListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="roundId" type="s:string" />
+    <wsdl:part name="groupId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="venueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCompetitionFixtureHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesTeamHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="roundId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFormGuideHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="leagueId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSeriesListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadChartHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStatsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStandingHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchStatsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamStandingHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMainScorecardHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFixtureHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentaryHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentaryHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchPredictionsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchletContentHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamMatchStatsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamSeriesStatsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="lastAccessDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="localeId" type="s:string" />
+    <wsdl:part name="seriesId" type="s:string" />
+    <wsdl:part name="matchId" type="s:string" />
+    <wsdl:part name="teamId" type="s:string" />
+    <wsdl:part name="playerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerStatsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="RugbyLeagueSoap">
+    <wsdl:operation name="GetLeagues">
+      <wsdl:input message="tns:GetLeaguesSoapIn" />
+      <wsdl:output message="tns:GetLeaguesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <wsdl:input message="tns:GetVenuesSoapIn" />
+      <wsdl:output message="tns:GetVenuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input message="tns:GetGroupsSoapIn" />
+      <wsdl:output message="tns:GetGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input message="tns:GetTeamsSoapIn" />
+      <wsdl:output message="tns:GetTeamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesSoapIn" />
+      <wsdl:output message="tns:GetCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <wsdl:input message="tns:GetPlayersSoapIn" />
+      <wsdl:output message="tns:GetPlayersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <wsdl:input message="tns:GetPlayerPositionsSoapIn" />
+      <wsdl:output message="tns:GetPlayerPositionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <wsdl:input message="tns:GetCompetitionListSoapIn" />
+      <wsdl:output message="tns:GetCompetitionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <wsdl:input message="tns:GetTeamLineUpSoapIn" />
+      <wsdl:output message="tns:GetTeamLineUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <wsdl:input message="tns:GetCompetitionRoundListSoapIn" />
+      <wsdl:output message="tns:GetCompetitionRoundListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <wsdl:input message="tns:GetCompetitionFixtureSoapIn" />
+      <wsdl:output message="tns:GetCompetitionFixtureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <wsdl:input message="tns:GetSeriesTeamSoapIn" />
+      <wsdl:output message="tns:GetSeriesTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <wsdl:input message="tns:GetFormGuideSoapIn" />
+      <wsdl:output message="tns:GetFormGuideSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <wsdl:input message="tns:GetFullSeriesListSoapIn" />
+      <wsdl:output message="tns:GetFullSeriesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <wsdl:input message="tns:GetLeadChartSoapIn" />
+      <wsdl:output message="tns:GetLeadChartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <wsdl:input message="tns:GetTeamStatsSoapIn" />
+      <wsdl:output message="tns:GetTeamStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <wsdl:input message="tns:GetPlayerStandingSoapIn" />
+      <wsdl:output message="tns:GetPlayerStandingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <wsdl:input message="tns:GetMatchStatsSoapIn" />
+      <wsdl:output message="tns:GetMatchStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <wsdl:input message="tns:GetTeamStandingSoapIn" />
+      <wsdl:output message="tns:GetTeamStandingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <wsdl:input message="tns:GetMainScorecardSoapIn" />
+      <wsdl:output message="tns:GetMainScorecardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <wsdl:input message="tns:GetFixtureSoapIn" />
+      <wsdl:output message="tns:GetFixtureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <wsdl:input message="tns:GetCommentarySoapIn" />
+      <wsdl:output message="tns:GetCommentarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <wsdl:input message="tns:GetMatchPredictionsSoapIn" />
+      <wsdl:output message="tns:GetMatchPredictionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <wsdl:input message="tns:GetMatchletContentSoapIn" />
+      <wsdl:output message="tns:GetMatchletContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <wsdl:input message="tns:GetTeamMatchStatsSoapIn" />
+      <wsdl:output message="tns:GetTeamMatchStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <wsdl:input message="tns:GetTeamSeriesStatsSoapIn" />
+      <wsdl:output message="tns:GetTeamSeriesStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <wsdl:input message="tns:GetSystemEventsSoapIn" />
+      <wsdl:output message="tns:GetSystemEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <wsdl:input message="tns:GetPlayerStatsSoapIn" />
+      <wsdl:output message="tns:GetPlayerStatsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RugbyLeagueHttpGet">
+    <wsdl:operation name="GetLeagues">
+      <wsdl:input message="tns:GetLeaguesHttpGetIn" />
+      <wsdl:output message="tns:GetLeaguesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <wsdl:input message="tns:GetVenuesHttpGetIn" />
+      <wsdl:output message="tns:GetVenuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input message="tns:GetGroupsHttpGetIn" />
+      <wsdl:output message="tns:GetGroupsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input message="tns:GetTeamsHttpGetIn" />
+      <wsdl:output message="tns:GetTeamsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesHttpGetIn" />
+      <wsdl:output message="tns:GetCountriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <wsdl:input message="tns:GetPlayersHttpGetIn" />
+      <wsdl:output message="tns:GetPlayersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <wsdl:input message="tns:GetPlayerPositionsHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerPositionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <wsdl:input message="tns:GetCompetitionListHttpGetIn" />
+      <wsdl:output message="tns:GetCompetitionListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <wsdl:input message="tns:GetTeamLineUpHttpGetIn" />
+      <wsdl:output message="tns:GetTeamLineUpHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <wsdl:input message="tns:GetCompetitionRoundListHttpGetIn" />
+      <wsdl:output message="tns:GetCompetitionRoundListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <wsdl:input message="tns:GetCompetitionFixtureHttpGetIn" />
+      <wsdl:output message="tns:GetCompetitionFixtureHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <wsdl:input message="tns:GetSeriesTeamHttpGetIn" />
+      <wsdl:output message="tns:GetSeriesTeamHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <wsdl:input message="tns:GetFormGuideHttpGetIn" />
+      <wsdl:output message="tns:GetFormGuideHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <wsdl:input message="tns:GetFullSeriesListHttpGetIn" />
+      <wsdl:output message="tns:GetFullSeriesListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <wsdl:input message="tns:GetLeadChartHttpGetIn" />
+      <wsdl:output message="tns:GetLeadChartHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <wsdl:input message="tns:GetTeamStatsHttpGetIn" />
+      <wsdl:output message="tns:GetTeamStatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <wsdl:input message="tns:GetPlayerStandingHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerStandingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <wsdl:input message="tns:GetMatchStatsHttpGetIn" />
+      <wsdl:output message="tns:GetMatchStatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <wsdl:input message="tns:GetTeamStandingHttpGetIn" />
+      <wsdl:output message="tns:GetTeamStandingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <wsdl:input message="tns:GetMainScorecardHttpGetIn" />
+      <wsdl:output message="tns:GetMainScorecardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <wsdl:input message="tns:GetFixtureHttpGetIn" />
+      <wsdl:output message="tns:GetFixtureHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <wsdl:input message="tns:GetCommentaryHttpGetIn" />
+      <wsdl:output message="tns:GetCommentaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <wsdl:input message="tns:GetMatchPredictionsHttpGetIn" />
+      <wsdl:output message="tns:GetMatchPredictionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <wsdl:input message="tns:GetMatchletContentHttpGetIn" />
+      <wsdl:output message="tns:GetMatchletContentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <wsdl:input message="tns:GetTeamMatchStatsHttpGetIn" />
+      <wsdl:output message="tns:GetTeamMatchStatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <wsdl:input message="tns:GetTeamSeriesStatsHttpGetIn" />
+      <wsdl:output message="tns:GetTeamSeriesStatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <wsdl:input message="tns:GetSystemEventsHttpGetIn" />
+      <wsdl:output message="tns:GetSystemEventsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <wsdl:input message="tns:GetPlayerStatsHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerStatsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RugbyLeagueHttpPost">
+    <wsdl:operation name="GetLeagues">
+      <wsdl:input message="tns:GetLeaguesHttpPostIn" />
+      <wsdl:output message="tns:GetLeaguesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <wsdl:input message="tns:GetVenuesHttpPostIn" />
+      <wsdl:output message="tns:GetVenuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input message="tns:GetGroupsHttpPostIn" />
+      <wsdl:output message="tns:GetGroupsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <wsdl:input message="tns:GetTeamsHttpPostIn" />
+      <wsdl:output message="tns:GetTeamsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesHttpPostIn" />
+      <wsdl:output message="tns:GetCountriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <wsdl:input message="tns:GetPlayersHttpPostIn" />
+      <wsdl:output message="tns:GetPlayersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <wsdl:input message="tns:GetPlayerPositionsHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerPositionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <wsdl:input message="tns:GetCompetitionListHttpPostIn" />
+      <wsdl:output message="tns:GetCompetitionListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <wsdl:input message="tns:GetTeamLineUpHttpPostIn" />
+      <wsdl:output message="tns:GetTeamLineUpHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <wsdl:input message="tns:GetCompetitionRoundListHttpPostIn" />
+      <wsdl:output message="tns:GetCompetitionRoundListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <wsdl:input message="tns:GetCompetitionFixtureHttpPostIn" />
+      <wsdl:output message="tns:GetCompetitionFixtureHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <wsdl:input message="tns:GetSeriesTeamHttpPostIn" />
+      <wsdl:output message="tns:GetSeriesTeamHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <wsdl:input message="tns:GetFormGuideHttpPostIn" />
+      <wsdl:output message="tns:GetFormGuideHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <wsdl:input message="tns:GetFullSeriesListHttpPostIn" />
+      <wsdl:output message="tns:GetFullSeriesListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <wsdl:input message="tns:GetLeadChartHttpPostIn" />
+      <wsdl:output message="tns:GetLeadChartHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <wsdl:input message="tns:GetTeamStatsHttpPostIn" />
+      <wsdl:output message="tns:GetTeamStatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <wsdl:input message="tns:GetPlayerStandingHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerStandingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <wsdl:input message="tns:GetMatchStatsHttpPostIn" />
+      <wsdl:output message="tns:GetMatchStatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <wsdl:input message="tns:GetTeamStandingHttpPostIn" />
+      <wsdl:output message="tns:GetTeamStandingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <wsdl:input message="tns:GetMainScorecardHttpPostIn" />
+      <wsdl:output message="tns:GetMainScorecardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <wsdl:input message="tns:GetFixtureHttpPostIn" />
+      <wsdl:output message="tns:GetFixtureHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <wsdl:input message="tns:GetCommentaryHttpPostIn" />
+      <wsdl:output message="tns:GetCommentaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <wsdl:input message="tns:GetMatchPredictionsHttpPostIn" />
+      <wsdl:output message="tns:GetMatchPredictionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <wsdl:input message="tns:GetMatchletContentHttpPostIn" />
+      <wsdl:output message="tns:GetMatchletContentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <wsdl:input message="tns:GetTeamMatchStatsHttpPostIn" />
+      <wsdl:output message="tns:GetTeamMatchStatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <wsdl:input message="tns:GetTeamSeriesStatsHttpPostIn" />
+      <wsdl:output message="tns:GetTeamSeriesStatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <wsdl:input message="tns:GetSystemEventsHttpPostIn" />
+      <wsdl:output message="tns:GetSystemEventsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <wsdl:input message="tns:GetPlayerStatsHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerStatsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RugbyLeagueSoap" type="tns:RugbyLeagueSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLeagues">
+      <soap:operation soapAction="http://tempuri.org/GetLeagues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <soap:operation soapAction="http://tempuri.org/GetVenues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://tempuri.org/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <soap:operation soapAction="http://tempuri.org/GetTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <soap:operation soapAction="http://tempuri.org/GetPlayers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerPositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <soap:operation soapAction="http://tempuri.org/GetCompetitionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <soap:operation soapAction="http://tempuri.org/GetTeamLineUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <soap:operation soapAction="http://tempuri.org/GetCompetitionRoundList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <soap:operation soapAction="http://tempuri.org/GetCompetitionFixture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <soap:operation soapAction="http://tempuri.org/GetSeriesTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <soap:operation soapAction="http://tempuri.org/GetFormGuide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <soap:operation soapAction="http://tempuri.org/GetFullSeriesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <soap:operation soapAction="http://tempuri.org/GetLeadChart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <soap:operation soapAction="http://tempuri.org/GetTeamStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerStanding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <soap:operation soapAction="http://tempuri.org/GetMatchStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <soap:operation soapAction="http://tempuri.org/GetTeamStanding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <soap:operation soapAction="http://tempuri.org/GetMainScorecard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <soap:operation soapAction="http://tempuri.org/GetFixture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <soap:operation soapAction="http://tempuri.org/GetCommentary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <soap:operation soapAction="http://tempuri.org/GetMatchPredictions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <soap:operation soapAction="http://tempuri.org/GetMatchletContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <soap:operation soapAction="http://tempuri.org/GetTeamMatchStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <soap:operation soapAction="http://tempuri.org/GetTeamSeriesStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <soap:operation soapAction="http://tempuri.org/GetSystemEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RugbyLeagueSoap12" type="tns:RugbyLeagueSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLeagues">
+      <soap12:operation soapAction="http://tempuri.org/GetLeagues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <soap12:operation soapAction="http://tempuri.org/GetVenues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <soap12:operation soapAction="http://tempuri.org/GetTeams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap12:operation soapAction="http://tempuri.org/GetCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerPositions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <soap12:operation soapAction="http://tempuri.org/GetCompetitionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamLineUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <soap12:operation soapAction="http://tempuri.org/GetCompetitionRoundList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <soap12:operation soapAction="http://tempuri.org/GetCompetitionFixture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <soap12:operation soapAction="http://tempuri.org/GetSeriesTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <soap12:operation soapAction="http://tempuri.org/GetFormGuide" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <soap12:operation soapAction="http://tempuri.org/GetFullSeriesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <soap12:operation soapAction="http://tempuri.org/GetLeadChart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerStanding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <soap12:operation soapAction="http://tempuri.org/GetMatchStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamStanding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <soap12:operation soapAction="http://tempuri.org/GetMainScorecard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <soap12:operation soapAction="http://tempuri.org/GetFixture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <soap12:operation soapAction="http://tempuri.org/GetCommentary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <soap12:operation soapAction="http://tempuri.org/GetMatchPredictions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <soap12:operation soapAction="http://tempuri.org/GetMatchletContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamMatchStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamSeriesStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerStats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RugbyLeagueHttpGet" type="tns:RugbyLeagueHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetLeagues">
+      <http:operation location="/GetLeagues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <http:operation location="/GetVenues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <http:operation location="/GetGroups" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <http:operation location="/GetTeams" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <http:operation location="/GetCountries" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <http:operation location="/GetPlayers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <http:operation location="/GetPlayerPositions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <http:operation location="/GetCompetitionList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <http:operation location="/GetTeamLineUp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <http:operation location="/GetCompetitionRoundList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <http:operation location="/GetCompetitionFixture" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <http:operation location="/GetSeriesTeam" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <http:operation location="/GetFormGuide" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <http:operation location="/GetFullSeriesList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <http:operation location="/GetLeadChart" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <http:operation location="/GetTeamStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <http:operation location="/GetPlayerStanding" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <http:operation location="/GetMatchStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <http:operation location="/GetTeamStanding" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <http:operation location="/GetMainScorecard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <http:operation location="/GetFixture" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <http:operation location="/GetCommentary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <http:operation location="/GetMatchPredictions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <http:operation location="/GetMatchletContent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <http:operation location="/GetTeamMatchStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <http:operation location="/GetTeamSeriesStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <http:operation location="/GetSystemEvents" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <http:operation location="/GetPlayerStats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RugbyLeagueHttpPost" type="tns:RugbyLeagueHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetLeagues">
+      <http:operation location="/GetLeagues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenues">
+      <http:operation location="/GetVenues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <http:operation location="/GetGroups" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeams">
+      <http:operation location="/GetTeams" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <http:operation location="/GetCountries" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayers">
+      <http:operation location="/GetPlayers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerPositions">
+      <http:operation location="/GetPlayerPositions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionList">
+      <http:operation location="/GetCompetitionList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLineUp">
+      <http:operation location="/GetTeamLineUp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionRoundList">
+      <http:operation location="/GetCompetitionRoundList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompetitionFixture">
+      <http:operation location="/GetCompetitionFixture" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeriesTeam">
+      <http:operation location="/GetSeriesTeam" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormGuide">
+      <http:operation location="/GetFormGuide" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSeriesList">
+      <http:operation location="/GetFullSeriesList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadChart">
+      <http:operation location="/GetLeadChart" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStats">
+      <http:operation location="/GetTeamStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStanding">
+      <http:operation location="/GetPlayerStanding" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStats">
+      <http:operation location="/GetMatchStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamStanding">
+      <http:operation location="/GetTeamStanding" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainScorecard">
+      <http:operation location="/GetMainScorecard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixture">
+      <http:operation location="/GetFixture" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentary">
+      <http:operation location="/GetCommentary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchPredictions">
+      <http:operation location="/GetMatchPredictions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchletContent">
+      <http:operation location="/GetMatchletContent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamMatchStats">
+      <http:operation location="/GetTeamMatchStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamSeriesStats">
+      <http:operation location="/GetTeamSeriesStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <http:operation location="/GetSystemEvents" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerStats">
+      <http:operation location="/GetPlayerStats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RugbyLeague">
+    <wsdl:port name="RugbyLeagueSoap" binding="tns:RugbyLeagueSoap">
+      <soap:address location="http://rbl.webservice.sportsflash.com.au/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RugbyLeagueSoap12" binding="tns:RugbyLeagueSoap12">
+      <soap12:address location="http://rbl.webservice.sportsflash.com.au/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RugbyLeagueHttpGet" binding="tns:RugbyLeagueHttpGet">
+      <http:address location="http://rbl.webservice.sportsflash.com.au/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RugbyLeagueHttpPost" binding="tns:RugbyLeagueHttpPost">
+      <http:address location="http://rbl.webservice.sportsflash.com.au/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
