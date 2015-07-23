@@ -12,16 +12,19 @@ namespace NrlWebServiceWrapper.Controllers
     public class NrlController : ApiController
     {
         private readonly INrlRepository _nrlRepository;
+        private readonly IFridayNightResolver _fridayNightResolver;
+
         // GET api/values
         public NrlController()
         {
             _nrlRepository = new NrlRepository(new Uri("http://rbl.webservice.sportsflash.com.au/WebService.asmx"), 151);
+            _fridayNightResolver = new FridayNightResolver();
         }
 
         public IEnumerable<MatchUpDto> Get()
         {
-            int currentRound = _nrlRepository.LoadCurrentRound();
-            IEnumerable<MatchUp> roundMatchUps = _nrlRepository.LoadCurrentRoundMatchUps(currentRound);
+            DateTime friday = _fridayNightResolver.FindFridayNightRound(DateTime.Today);
+            IEnumerable<MatchUp> roundMatchUps = _nrlRepository.LoadCurrentRoundMatchUps(friday);
             return roundMatchUps.Select(item => new MatchUpDto
             {
                 Match = item.Match,

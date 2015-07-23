@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NrlWebServiceWrapper.Core;
 
 namespace NrlWebServiceWrapper.Integration
 {
     public interface INrlRepository
     {
-        int LoadCurrentRound();
-        IEnumerable<MatchUp> LoadCurrentRoundMatchUps(int roundNumber);
+        IEnumerable<MatchUp> LoadCurrentRoundMatchUps(DateTime firstFridayOfRound);
     }
 }

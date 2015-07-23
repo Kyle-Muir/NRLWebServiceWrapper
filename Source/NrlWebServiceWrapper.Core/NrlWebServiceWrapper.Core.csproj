@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FridayNightResolver.cs" />
+    <Compile Include="IFridayNightResolver.cs" />
     <Compile Include="MatchUp.cs" />
     <Compile Include="MatchUpDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

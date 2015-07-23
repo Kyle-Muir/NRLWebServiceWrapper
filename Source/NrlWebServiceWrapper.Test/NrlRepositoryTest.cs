@@ -11,19 +11,11 @@ namespace NrlWebServiceWrapper.Test
     public class NrlRepositoryTest
     {
         [Test]
-        public void CanLoadCurrentRound()
-        {
-            NrlRepository repository = CreateNrlRepository();
-            int currentRound = repository.LoadCurrentRound();
-            Console.WriteLine(currentRound);
-            currentRound.Should().NotBe(-1, "Should have a reasonable value");
-        }
-
-        [Test]
         public void CanLoadGamesForCurrentRound()
         {
             NrlRepository repository = CreateNrlRepository();
-            IEnumerable<MatchUp> currentRoundMatchUps = repository.LoadCurrentRoundMatchUps(19);
+            DateTime firstFridayOfRound = TestDates.FridaySeventeenth.AddDays(7);
+            IEnumerable<MatchUp> currentRoundMatchUps = repository.LoadCurrentRoundMatchUps(firstFridayOfRound);
             currentRoundMatchUps.Should().NotBeNull("There should be some games being played");
         }
 
