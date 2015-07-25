@@ -14,11 +14,14 @@ namespace NrlWebServiceWrapper.Controllers
         private readonly INrlRepository _nrlRepository;
         private readonly IFridayNightResolver _fridayNightResolver;
 
-        // GET api/values
-        public NrlController()
+        public NrlController(INrlRepository nrlRepository, IFridayNightResolver fridayNightResolver)
         {
-            _nrlRepository = new NrlRepository(new Uri("http://rbl.webservice.sportsflash.com.au/WebService.asmx"), 151);
-            _fridayNightResolver = new FridayNightResolver();
+            
+            if (nrlRepository == null) throw new ArgumentNullException("nrlRepository");
+            if (fridayNightResolver == null) throw new ArgumentNullException("fridayNightResolver");
+
+            _nrlRepository = nrlRepository;
+            _fridayNightResolver = fridayNightResolver;
         }
 
         public IEnumerable<MatchUpDto> Get()
