@@ -1,4 +1,4 @@
-namespace NrlWebServiceWrapper.Core
+namespace NrlWebServiceWrapper.Core.Dto
 {
     public class MatchUpDto
     {

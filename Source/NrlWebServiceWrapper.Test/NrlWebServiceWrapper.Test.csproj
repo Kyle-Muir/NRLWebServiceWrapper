@@ -52,6 +52,7 @@
     <Compile Include="CacheItemPolicyGeneratorTest.cs" />
     <Compile Include="DoNothingCache.cs" />
     <Compile Include="FridayNightResolverTest.cs" />
+    <Compile Include="MatchStatusResolverTest.cs" />
     <Compile Include="NrlRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestClock.cs" />

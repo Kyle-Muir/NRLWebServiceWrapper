@@ -42,12 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\MatchScorecardBuilder.cs" />
+    <Compile Include="Builder\MatchStatusResolver.cs" />
+    <Compile Include="Builder\MatchUpBuilder.cs" />
+    <Compile Include="Builder\TeamPointsBuilder.cs" />
     <Compile Include="CacheItemPolicyGenerator.cs" />
     <Compile Include="Clock.cs" />
     <Compile Include="Contracts\FixtureEventVenue.cs" />
     <Compile Include="Contracts\Fixture.cs" />
     <Compile Include="Contracts\FixtureEvent.cs" />
     <Compile Include="Contracts\FixtureHeader.cs" />
+    <Compile Include="Contracts\Scorecard.cs" />
+    <Compile Include="Contracts\ScorecardMatch.cs" />
+    <Compile Include="Contracts\ScorecardMatchReferees.cs" />
+    <Compile Include="Contracts\ScorecardMatchTeam.cs" />
     <Compile Include="Contracts\SeriesList.cs" />
     <Compile Include="Contracts\SeriesListSeries.cs" />
     <Compile Include="ICacheItemPolicyGenerator.cs" />

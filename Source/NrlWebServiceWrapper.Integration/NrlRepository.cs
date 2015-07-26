@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.Xml;
 using System.Xml.Serialization;
 using NrlWebServiceWrapper.Core;
+using NrlWebServiceWrapper.Core.Domain;
+using NrlWebServiceWrapper.Integration.Builder;
 using NrlWebServiceWrapper.Integration.Contracts;
 using NrlWebServiceWrapper.Integration.RugbyLeagueWebService;
 
@@ -16,14 +18,16 @@ namespace NrlWebServiceWrapper.Integration
         private readonly Uri _endpoint;
         private readonly int _clientId;
         private readonly INrlCache _nrlCache;
+        //TODO: currently hardcoded to NRL premiership 2015, resolve this by current NRL premiership season from GetLeagues
+        private const int SeriesId = 151;
 
         public NrlRepository(Uri endpoint, INrlCache nrlCache, int clientId)
         {
             if (endpoint == null) throw new ArgumentNullException("endpoint");
             if (nrlCache == null) throw new ArgumentNullException("nrlCache");
             _endpoint = endpoint;
-            _clientId = clientId;
             _nrlCache = nrlCache;
+            _clientId = clientId;
         }
 
         private RugbyLeagueSoapClient CreateRugbyLeagueSoapClient()
@@ -39,8 +43,8 @@ namespace NrlWebServiceWrapper.Integration
                 using (RugbyLeagueSoapClient client = CreateRugbyLeagueSoapClient())
                 {
                     XmlNode fixtureAsXml = client.GetFixture(_clientId);
-                    XmlSerializer serializer = new XmlSerializer(typeof (Fixture));
-                    Fixture fixture = (Fixture) serializer.Deserialize(new StringReader(fixtureAsXml.OuterXml));
+                    XmlSerializer serializer = new XmlSerializer(typeof(Fixture));
+                    Fixture fixture = (Fixture)serializer.Deserialize(new StringReader(fixtureAsXml.OuterXml));
 
                     FixtureEvent currentRoundFixture =
                         fixture.Event.FirstOrDefault(i => i.StartDateTime.Date == firstFridayOfRound.Date);
@@ -53,12 +57,24 @@ namespace NrlWebServiceWrapper.Integration
                         fixture.Event.Where(round => round.roundId == currentRoundFixture.roundId);
 
                     return
-                        currentRoundFixtures.Select(
-                            item => new MatchUp(item.Round, item.Match, item.Venue.Value, item.StartDateTimeUTC));
+                        currentRoundFixtures.Select(item => new MatchUpBuilder(item).Build());
 
                 }
             };
             return _nrlCache.TryGetSet(key, loadMatchupsFromApi, NrlCacheExpiry.Daily);
         }
+
+        public MatchScorecard LoadMatchScorecard(int matchId)
+        {
+            using (RugbyLeagueSoapClient client = CreateRugbyLeagueSoapClient())
+            {
+                XmlNode mainScorecard = client.GetMainScorecard(_clientId, SeriesId, matchId);
+                XmlSerializer serializer = new XmlSerializer(typeof(Scorecard));
+                Scorecard scorecard = (Scorecard)serializer.Deserialize(new StringReader(mainScorecard.OuterXml));
+
+                return new MatchScorecardBuilder(scorecard).Build();
+            }
+        }
     }
 }
+

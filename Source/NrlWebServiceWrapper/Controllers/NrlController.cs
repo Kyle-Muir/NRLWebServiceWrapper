@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using NrlWebServiceWrapper.Core;
+using NrlWebServiceWrapper.Core.Domain;
+using NrlWebServiceWrapper.Core.Dto;
 using NrlWebServiceWrapper.Integration;
 
 namespace NrlWebServiceWrapper.Controllers
