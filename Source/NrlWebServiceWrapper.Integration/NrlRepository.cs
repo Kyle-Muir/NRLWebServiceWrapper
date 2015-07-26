@@ -66,13 +66,29 @@ namespace NrlWebServiceWrapper.Integration
 
         public MatchScorecard LoadMatchScorecard(int matchId)
         {
+            string key = "LoadScorecard_{0}".FormatWith(matchId);
+            MatchScorecard result = _nrlCache.Get(key) as MatchScorecard;
+            if (result != null)
+            {
+                return result;
+            }
+
             using (RugbyLeagueSoapClient client = CreateRugbyLeagueSoapClient())
             {
                 XmlNode mainScorecard = client.GetMainScorecard(_clientId, SeriesId, matchId);
                 XmlSerializer serializer = new XmlSerializer(typeof(Scorecard));
                 Scorecard scorecard = (Scorecard)serializer.Deserialize(new StringReader(mainScorecard.OuterXml));
 
-                return new MatchScorecardBuilder(scorecard).Build();
+                result = new MatchScorecardBuilder(scorecard).Build();
+                if (result.Status == MatchStatus.Live)
+                {
+                    _nrlCache.Add(key, result, NrlCacheExpiry.Minutes);
+                }
+                else
+                {
+                    _nrlCache.Add(key, result, NrlCacheExpiry.Daily);
+                }
+                return result;
             }
         }
     }

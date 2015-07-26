@@ -12,8 +12,8 @@ namespace NrlWebServiceWrapper.Integration.Builder
             {
                 case "F":
                     return MatchStatus.Finished;
-                case "P":
-                    return MatchStatus.InProgress;
+                case "L":
+                    return MatchStatus.Live;
                 case "N":
                     return MatchStatus.NotYetStarted;
                 default:
@@ -27,8 +27,8 @@ namespace NrlWebServiceWrapper.Integration.Builder
             {
                 case MatchStatus.Finished:
                     return "Finished";
-                case MatchStatus.InProgress:
-                    return "In progress";
+                case MatchStatus.Live:
+                    return "Live";
                 case MatchStatus.NotYetStarted:
                     return "Not yet started";
                 default:

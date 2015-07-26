@@ -10,7 +10,7 @@ namespace NrlWebServiceWrapper.Test
     public class MatchStatusResolverTest
     {
         [TestCase("F", MatchStatus.Finished)]
-        [TestCase("P", MatchStatus.InProgress)]
+        [TestCase("L", MatchStatus.Live)]
         [TestCase("N", MatchStatus.NotYetStarted)]
         public void CanResolveMatchStatuses(string status, MatchStatus expectedMatchStatus)
         {
@@ -19,7 +19,7 @@ namespace NrlWebServiceWrapper.Test
         }
 
         [TestCase(MatchStatus.Finished, "Finished")]
-        [TestCase(MatchStatus.InProgress, "In progress")]
+        [TestCase(MatchStatus.Live, "Live")]
         [TestCase(MatchStatus.NotYetStarted, "Not yet started")]
         public void CanResolveMatchStatusesForDisplayValues(MatchStatus matchStatus, string expectedStatus)
         {

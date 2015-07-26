@@ -17,12 +17,12 @@ namespace NrlWebServiceWrapper.Integration
             _cacheItemPolicyGenerator = cacheItemPolicyGenerator;
         }
 
-        private object Get(string key)
+        public object Get(string key)
         {
             return _memoryCache.Get(key);
         }
 
-        private void Add<T>(string key, T item, NrlCacheExpiry expiry)
+        public void Add<T>(string key, T item, NrlCacheExpiry expiry)
         {
             CacheItemPolicy cacheItemPolicy = _cacheItemPolicyGenerator.GeneratePolicy(expiry);
             _memoryCache.Add(key, item, cacheItemPolicy);
@@ -31,13 +31,13 @@ namespace NrlWebServiceWrapper.Integration
         public T TryGetSet<T>(string key, Func<T> actionToLoadData, NrlCacheExpiry expiry)
         {
             object result = Get(key);
-            if (result == null)
+            if (result != null)
             {
-                T item = actionToLoadData.Invoke();
-                Add(key, item, expiry);
-                return item;
+                return (T)result;
             }
-            return (T)result;
+            T item = actionToLoadData.Invoke();
+            Add(key, item, expiry);
+            return item;
         }
     }
 }

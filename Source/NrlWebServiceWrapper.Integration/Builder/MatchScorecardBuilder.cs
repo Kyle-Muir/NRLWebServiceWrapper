@@ -1,5 +1,4 @@
 ﻿using System;
-using NrlWebServiceWrapper.Core;
 using NrlWebServiceWrapper.Core.Domain;
 using NrlWebServiceWrapper.Integration.Contracts;
 
