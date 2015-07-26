@@ -80,6 +80,7 @@ namespace NrlWebServiceWrapper.Integration
                 Scorecard scorecard = (Scorecard)serializer.Deserialize(new StringReader(mainScorecard.OuterXml));
 
                 result = new MatchScorecardBuilder(scorecard).Build();
+                //TODO: cache all games yet to start up until their start date as an absolute expiry.
                 if (result.Status == MatchStatus.Live)
                 {
                     _nrlCache.Add(key, result, NrlCacheExpiry.Minutes);
