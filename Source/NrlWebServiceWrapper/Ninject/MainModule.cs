@@ -10,6 +10,7 @@ namespace NrlWebServiceWrapper.Ninject
     {
         public override void Load()
         {
+            Kernel.Bind<IClock>().To<Clock>();
             Kernel.Bind<ICacheItemPolicyGenerator>().To<CacheItemPolicyGenerator>();
             GenerateAndBindNrlCache();
             Kernel.Bind<IFridayNightResolver>().To<FridayNightResolver>();

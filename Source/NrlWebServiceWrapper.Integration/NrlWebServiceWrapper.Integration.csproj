@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheItemPolicyGenerator.cs" />
+    <Compile Include="Clock.cs" />
     <Compile Include="Contracts\FixtureEventVenue.cs" />
     <Compile Include="Contracts\Fixture.cs" />
     <Compile Include="Contracts\FixtureEvent.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Contracts\SeriesList.cs" />
     <Compile Include="Contracts\SeriesListSeries.cs" />
     <Compile Include="ICacheItemPolicyGenerator.cs" />
+    <Compile Include="IClock.cs" />
     <Compile Include="INrlCache.cs" />
     <Compile Include="INrlRepository.cs" />
     <Compile Include="NrlCache.cs" />
