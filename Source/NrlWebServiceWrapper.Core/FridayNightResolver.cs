@@ -28,7 +28,7 @@ namespace NrlWebServiceWrapper.Core
                 case DayOfWeek.Saturday:
                     return date.AddDays(-1);
                 default:
-                    throw new ArgumentException(string.Format("Unable to resolve previous Friday for {0}", date.DayOfWeek));
+                    throw new ArgumentException("Unable to resolve previous Friday for {0}".FormatWith(date.DayOfWeek));
             }
         }
 

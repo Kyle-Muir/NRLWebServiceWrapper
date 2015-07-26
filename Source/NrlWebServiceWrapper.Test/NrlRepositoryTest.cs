@@ -21,7 +21,7 @@ namespace NrlWebServiceWrapper.Test
 
         private static NrlRepository CreateNrlRepository()
         {
-            return new NrlRepository(new Uri("http://rbl.webservice.sportsflash.com.au/WebService.asmx"), 151);
+            return new NrlRepository(new Uri("http://rbl.webservice.sportsflash.com.au/WebService.asmx"), new DoNothingCache(),  151);
         }
     }
 }

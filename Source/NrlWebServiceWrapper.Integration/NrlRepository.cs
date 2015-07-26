@@ -15,12 +15,15 @@ namespace NrlWebServiceWrapper.Integration
     {
         private readonly Uri _endpoint;
         private readonly int _clientId;
+        private readonly INrlCache _nrlCache;
 
-        public NrlRepository(Uri endpoint, int clientId)
+        public NrlRepository(Uri endpoint, INrlCache nrlCache, int clientId)
         {
             if (endpoint == null) throw new ArgumentNullException("endpoint");
+            if (nrlCache == null) throw new ArgumentNullException("nrlCache");
             _endpoint = endpoint;
             _clientId = clientId;
+            _nrlCache = nrlCache;
         }
 
         private RugbyLeagueSoapClient CreateRugbyLeagueSoapClient()
@@ -30,24 +33,32 @@ namespace NrlWebServiceWrapper.Integration
 
         public IEnumerable<MatchUp> LoadCurrentRoundMatchUps(DateTime firstFridayOfRound)
         {
-            using (RugbyLeagueSoapClient client = CreateRugbyLeagueSoapClient())
+            string key = "LoadCurrentRoundMatchUps_{0}".FormatWith(firstFridayOfRound.ToShortDateString());
+            Func<IEnumerable<MatchUp>> loadMatchupsFromApi = () =>
             {
-                XmlNode fixtureAsXml = client.GetFixture(_clientId);
-                XmlSerializer serializer = new XmlSerializer(typeof (Fixture));
-                Fixture fixture = (Fixture)serializer.Deserialize(new StringReader(fixtureAsXml.OuterXml));
-
-                FixtureEvent currentRoundFixture = fixture.Event.FirstOrDefault(i => i.StartDateTime.Date == firstFridayOfRound.Date);
-                if (currentRoundFixture == null)
+                using (RugbyLeagueSoapClient client = CreateRugbyLeagueSoapClient())
                 {
-                    throw new ArgumentException("Unable to track down current round.");
+                    XmlNode fixtureAsXml = client.GetFixture(_clientId);
+                    XmlSerializer serializer = new XmlSerializer(typeof (Fixture));
+                    Fixture fixture = (Fixture) serializer.Deserialize(new StringReader(fixtureAsXml.OuterXml));
+
+                    FixtureEvent currentRoundFixture =
+                        fixture.Event.FirstOrDefault(i => i.StartDateTime.Date == firstFridayOfRound.Date);
+                    if (currentRoundFixture == null)
+                    {
+                        throw new ArgumentException("Unable to track down current round.");
+                    }
+
+                    IEnumerable<FixtureEvent> currentRoundFixtures =
+                        fixture.Event.Where(round => round.roundId == currentRoundFixture.roundId);
+
+                    return
+                        currentRoundFixtures.Select(
+                            item => new MatchUp(item.Round, item.Match, item.Venue.Value, item.StartDateTimeUTC));
+
                 }
-
-                IEnumerable<FixtureEvent> currentRoundFixtures = fixture.Event.Where(round => round.roundId == currentRoundFixture.roundId);
-
-                return
-                    currentRoundFixtures.Select(item => new MatchUp(item.Round, item.Match, item.Venue.Value, item.StartDateTimeUTC));
-
-            }
+            };
+            return _nrlCache.TryGetSet(key, loadMatchupsFromApi, NrlCacheExpiry.Daily);
         }
     }
 }
